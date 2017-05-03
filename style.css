@@ -35,3 +35,9 @@ h3{
     box-shadow: 2px 2px 2px #999;
     background-color: #ff0042;
 }
+#rectangle {
+  width: 300px;
+  height: 10px;
+  padding: 0 20px;
+  border: 2px solid #222;
+}

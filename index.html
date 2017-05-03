@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Jquery exercices base 3</title>
         <link rel="stylesheet" href="style.css">
+        <script src="jquery.js"></script>
     </head>
     <body>
         <h1>Exercices Jquery base 3</h1>
@@ -13,17 +14,68 @@
         <!-------------------------------------------- Exercice 1 -------------------------------------->
         <h3><em>Exercice 1</em></h3>
         <p>Céer un bouton et un champ texte dans lequel on affiche le nombre de clics sur le bouton.</p>
+        <p type="text" id="inputnombre"></p>
+<button id="morsay" onclick="nbclics++;">clic</button>
+
+<script>
+var nbclics = 0;
+$(document).ready(function(){
+  $("#morsay").click(function(){
+    $("#inputnombre").text(nbclics);
+});
+});
+</script>
 
         <hr>
         <!-------------------------------------------- Exercice 2 -------------------------------------->
         <h3>Exercice 2</h3>
         <p>Céer 2 boutons ("+" et "-") et un champ texte dans lequel on augmente ou baisse le chiffre en fonction des boutons cliqués</p>
-
+        <p type="text" id="plusmoins"></p>
+<button class="pluss" onclick="nbclics++;">+</button>
+<button class="pluss" onclick="nbclics--;">-</button>
+<script>
+var nbclics = 0;
+$(document).ready(function(){
+  $(".pluss").click(function(){
+    $("#plusmoins").text(nbclics);
+});
+});
+</script>
         <hr>
         <!-------------------------------------------- Exercice 3 -------------------------------------->
         <h3>Exercice 3</h3>
         <p>Créer 5 boutons et un rectangle. Chaque bouton provoque une action sur le rectangle.
+          <p id="rectangle"><p>
+<button  id="b1">Hauteur</button>
+<button  id="b2">Couleurs</button>
+<button  id="b3">Back to couleurs</button>
+<button  id="b4">Hide</button>
+<button  id="b5">Show</button>
+<script>
+var hauteur = 10;
+$(document).ready(function(){
+  $("#b1").click(function(){
+    hauteur = hauteur + 10
+    if (hauteur > 100){
+      hauteur = 10;
+    }
+  $("#rectangle").css("height", hauteur);
+});
+  $("#b2").click(function(){
+    $("#rectangle").css({"border-color": "green"});
+  });
+  $("#b3").click(function(){
+    $("#rectangle").css({"border-color": ""});
+  });
+  $("#b4").click(function(){
+    $("#rectangle").hide();
+  });
+  $("#b5").click(function(){
+    $("#rectangle").show();
+  });
+});
 
+</script>
         <ul>
             <li>Bouton 1 : augmente la hauteur de <b>10px</b>, si il dépasse <b>100px</b>, il remet la hauteur à <b>10px</b></li>
             <li>Bouton 2 : met le rectangle en vert</li>
@@ -47,8 +99,34 @@
         <p><b>Bonus</b> : Quand la réponse est trouvée, on obtient le nombre d'essai que l'on a fait.
         </p>
         <hr>
+<!-- <p id="champ"></p>
+<button id="chiffre">Lucky</button>
+<script>
+var min = 0
+var max = 100
+$(document).ready(function(){
+  $("#chiffre").click(function(){
+
+  })
+}) -->
+<button id="getNumber">Générer</button>
+
+<p id="result"></p>
+
+  <script>
+    var link = document.getElementById('getNumber');
+    link.onclick = getNumber;
+
+    function getNumber() {
+        var minNumber = 1; // le minimum
+        var maxNumber = 100; // le maximum
+        var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber); // la fonction magique
+        $('#result').html(randomnumber);
+
+    }
+  </script>
 
 
-
+</script>
     </body>
 </html>
