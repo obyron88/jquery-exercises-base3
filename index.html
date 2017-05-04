@@ -99,31 +99,30 @@ $(document).ready(function(){
         <p><b>Bonus</b> : Quand la réponse est trouvée, on obtient le nombre d'essai que l'on a fait.
         </p>
         <hr>
-<!-- <p id="champ"></p>
-<button id="chiffre">Lucky</button>
-<script>
-var min = 0
-var max = 100
-$(document).ready(function(){
-  $("#chiffre").click(function(){
 
-  })
-}) -->
-<button id="getNumber">Générer</button>
-
-<p id="result"></p>
+<input id="testo" type="text"  placeholder="Enter here">
+<button id="try">essayer</button>
+<p class="return"></p>
 
   <script>
-    var link = document.getElementById('getNumber');
-    link.onclick = getNumber;
 
-    function getNumber() {
-        var minNumber = 1; // le minimum
-        var maxNumber = 100; // le maximum
-        var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber); // la fonction magique
-        $('#result').html(randomnumber);
-
-    }
+var secret = Math.floor((Math.random()- 0.0000001)*101);
+var tentatives = 0;
+    $(document).ready(function(){
+      $('#try').click(function () {
+        tentatives ++;
+          var user_tentative = $('#testo').val();
+           if(secret > user_tentative){
+            $('.return').text("trop petite");
+           }
+           else if(secret < user_tentative) {
+            $('.return').text("trop grande");
+           }
+           else {
+            $('.return').text("gagné, vous avez mis "+tentatives+ " tentatives, pour avoir la taille idéale!");
+           }
+      });
+    });
   </script>
 
 
